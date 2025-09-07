@@ -7,6 +7,8 @@ use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Barcode\Index as BarcodeIndex;
 use App\Livewire\Barcode\Create as BarcodeCreate;
+use App\Livewire\Menu\Index as MenuIndex;
+use App\Livewire\Menu\Create as MenuCreate;
 
 
 Route::middleware('auth')->group(function () {
@@ -21,6 +23,11 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'barcode'], function () {
         Route::get('/', BarcodeIndex::class)->name('barcode.index');
         Route::get('/tambah', BarcodeCreate::class)->name('barcode.create');
+    });
+
+    Route::group(['prefix' => 'menu'], function () {
+        Route::get('/', MenuIndex::class)->name('menu.index');
+        Route::get('/tambah', MenuCreate::class)->name('menu.create');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

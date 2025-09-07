@@ -100,9 +100,7 @@
                                         <label for="af-account-phone" class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200">
                                             No. Telpon
                                         </label>
-                                        <span class="text-sm text-gray-400 dark:text-neutral-600">
-                                  (Optional)
-                                </span>
+                                        <span class="text-sm text-gray-400 dark:text-neutral-600">(Opsional)</span>
                                     </div>
                                 </div>
                                 <!-- End Col -->
