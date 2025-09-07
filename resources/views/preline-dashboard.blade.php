@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Body -->
-    <div class="flex-1 flex flex-col overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+    <div class="">
         <div class="flex-1 flex flex-col lg:flex-row">
             <div class="flex-1 min-w-0 flex flex-col border-e border-gray-200 dark:border-neutral-700">
                 <div class="p-4 flex flex-col bg-white border-b border-gray-200 dark:border-neutral-700 dark:bg-neutral-800">

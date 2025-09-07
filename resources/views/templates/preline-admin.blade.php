@@ -82,18 +82,25 @@
                     <div class="h-8">
                         <!-- Account Dropdown -->
                         <div class="hs-dropdown inline-flex [--strategy:absolute] [--auto-close:inside] [--placement:bottom-right] relative text-start">
-                            <button id="hs-dnad" type="button" class="p-0.5 inline-flex shrink-0 items-center gap-x-3 text-start rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-200 dark:text-neutral-500" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                                <img class="shrink-0 size-7 rounded-full" src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                            <button
+                                id="hs-dnad"
+                                type="button"
+                                class="cursor-pointer p-0.5 inline-flex shrink-0 items-center gap-x-3 text-start rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-200 dark:text-neutral-500"
+                                aria-haspopup="menu"
+                                aria-expanded="false"
+                                aria-label="Dropdown"
+                            >
+                                <div class="bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90% shrink-0 size-7 rounded-full"></div>
                             </button>
 
                             <!-- Account Dropdown -->
                             <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-60 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white border border-gray-200 rounded-xl shadow-xl dark:bg-neutral-900 dark:border-neutral-700" role="menu" aria-orientation="vertical" aria-labelledby="hs-dnad">
                                 <div class="py-2 px-3.5">
                                     <span class="font-medium text-gray-800 dark:text-neutral-300">
-                                      James Collison
+                                      {{ Auth::user()->name }}
                                     </span>
                                     <p class="text-sm text-gray-500 dark:text-neutral-500">
-                                        jamescollison@site.com
+                                        {{ Auth::user()->email }}
                                     </p>
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-200 dark:border-neutral-800">
@@ -133,15 +140,22 @@
                                     </div>
                                     <!-- End Switch/Toggle -->
                                 </div>
+
                                 <div class="p-1 border-t border-gray-200 dark:border-neutral-800">
-                                    <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
-                                        <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="m16 17 5-5-5-5" />
-                                            <path d="M21 12H9" />
-                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                        </svg>
-                                        Log out
-                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                           href="{{ route('logout') }}"
+                                           onclick="event.preventDefault(); this.closest('form').submit();"
+                                        >
+                                            <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="m16 17 5-5-5-5" />
+                                                <path d="M21 12H9" />
+                                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                            </svg>
+                                            Log out
+                                        </a>
+                                    </form>
                                 </div>
                             </div>
                             <!-- End Account Dropdown -->
@@ -201,7 +215,7 @@
                     <!-- List -->
                     <ul class="flex flex-col gap-y-1">
                         <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-500 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-500 dark:text-neutral-500" href="#">
+                            <a href="{{ route('dashboard') }}" class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-500 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-500 dark:text-neutral-500">
                                 Dashboard
                             </a>
                         </li>
@@ -211,28 +225,26 @@
 
                 <div class="pt-3 mt-3 flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
                     <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-gray-800 dark:text-neutral-500">
-                        Pages
+                        Data
                     </span>
 
                     <!-- List -->
                     <ul class="flex flex-col gap-y-1">
                         <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-500 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-500 dark:text-neutral-500" href="#">
-                                Posts
+                            <a href="{{ route('sekolah.list') }}" class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-500 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-500 dark:text-neutral-500">
+                                Sekolah
                             </a>
                         </li>
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-500 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-500 dark:text-neutral-500" href="#">
-                                Members
+                                Barcode
                             </a>
                         </li>
                     </ul>
                     <!-- End List -->
                 </div>
 
-                <!-- Footer -->
                 <footer class="mt-auto p-3 flex flex-col">
-                    <!-- List -->
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-500 rounded-lg hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-500 dark:text-neutral-500" href="#">
@@ -243,9 +255,8 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- End List -->
                 </footer>
-                <!-- End Footer -->
+            </nav>
         </div>
     </div>
     <!-- End Sidebar -->
@@ -256,13 +267,16 @@
         <div class="py-3 px-4 flex flex-wrap justify-between items-center gap-2 bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
             <div>
                 <h1 class="font-medium text-lg text-gray-800 dark:text-neutral-200">
-                    Dashboard
+                    {{ $title ?? '' }}
                 </h1>
             </div>
         </div>
         <!-- End Header -->
 
-        @yield('content')
+        <div class="flex-1 flex flex-col overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+            @yield('content')
+            {{ $slot ?? '' }}
+        </div>
     </div>
     <!-- End Content -->
 </main>
