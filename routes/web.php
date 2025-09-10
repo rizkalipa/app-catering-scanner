@@ -9,6 +9,9 @@ use App\Livewire\Barcode\Index as BarcodeIndex;
 use App\Livewire\Barcode\Create as BarcodeCreate;
 use App\Livewire\Menu\Index as MenuIndex;
 use App\Livewire\Menu\Create as MenuCreate;
+use App\Livewire\SetMenu\Index as SetMenuIndex;
+use App\Livewire\SetMenu\Create as SetMenuCreate;
+use App\Livewire\ScanBarcode\Index as ScanBarcodeIndex;
 
 
 Route::middleware('auth')->group(function () {
@@ -28,6 +31,15 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'menu'], function () {
         Route::get('/', MenuIndex::class)->name('menu.index');
         Route::get('/tambah', MenuCreate::class)->name('menu.create');
+    });
+
+    Route::group(['prefix' => 'set-menu'], function () {
+        Route::get('/', SetMenuIndex::class)->name('setMenu.index');
+        Route::get('/tambah', SetMenuCreate::class)->name('setMenu.create');
+    });
+
+    Route::group(['prefix' => 'scan-barcode'], function () {
+        Route::get('/', ScanBarcodeIndex::class)->name('scanBarcode.index');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

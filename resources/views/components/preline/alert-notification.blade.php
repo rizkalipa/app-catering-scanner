@@ -26,7 +26,7 @@
     </div>
 @elseif ($type === 'danger')
     <div class="p-2">
-        <div class="bg-amber-50 border border-amber-200 text-sm text-red-800 rounded-lg p-4 dark:bg-amber-800/10 dark:border-amber-900 dark:text-red-500" role="alert" tabindex="-1" aria-labelledby="hs-link-on-right-label">
+        <div class="bg-red-50 border border-red-200 text-sm text-red-800 rounded-lg p-4 dark:bg-red-800/10 dark:border-red-900 dark:text-red-500" role="alert" tabindex="-1" aria-labelledby="hs-link-on-right-label">
             <div class="flex">
                 <div class="shrink-0">
                     <svg class="shrink-0 size-4 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +40,7 @@
                         {{ $slot }}
                     </p>
                     <p class="text-sm mt-3 md:mt-0 md:ms-6">
-                        <a class="text-red-800 hover:text-red-500 focus:outline-hidden focus:text-amber-500 font-medium whitespace-nowrap dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" href="{{ $actionUrl }}">
+                        <a class="text-red-800 hover:text-red-500 focus:outline-hidden focus:text-red-500 font-medium whitespace-nowrap dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" href="{{ $actionUrl }}">
                             {{ $actionLabel }}
                         </a>
                     </p>

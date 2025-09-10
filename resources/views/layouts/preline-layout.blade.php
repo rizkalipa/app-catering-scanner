@@ -173,6 +173,30 @@
                             <span class="truncate hs-overlay-minified:opacity-0 transition-opacity duration-300">Menu</span>
                         </a>
                     </li>
+                    <li>
+                        <a
+                            href="{{ route('setMenu.index') }}"
+                            class="group relative w-full inline-flex items-center gap-4 py-1.5 px-2.5 relative text-sm text-gray-500 rounded-lg before:absolute before:inset-y-0 before:-start-2 before:rounded-e-full before:w-1 before:h-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-100/70 dark:hover:bg-neutral-700/50 dark:focus:bg-neutral-700/50 dark:text-neutral-500 "
+                            wire:current="border border-gray-200 dark:border-neutral-700 shadow-xs bg-white dark:bg-neutral-800 dark:text-white hover:bg-gray-50"
+                        >
+                            <span class="-ms-[5px] flex shrink-0 justify-center items-center size-6">
+                                <svg class="shrink-0 size-4 group-hover:scale-115 group-focus:scale-115 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+                            </span>
+                            <span class="truncate hs-overlay-minified:opacity-0 transition-opacity duration-300">Set Menu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="{{ route('scanBarcode.index') }}"
+                            class="group relative w-full inline-flex items-center gap-4 py-1.5 px-2.5 relative text-sm text-gray-500 rounded-lg before:absolute before:inset-y-0 before:-start-2 before:rounded-e-full before:w-1 before:h-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-100/70 dark:hover:bg-neutral-700/50 dark:focus:bg-neutral-700/50 dark:text-neutral-500 "
+                            wire:current="border border-gray-200 dark:border-neutral-700 shadow-xs bg-white dark:bg-neutral-800 dark:text-white hover:bg-gray-50"
+                        >
+                            <span class="-ms-[5px] flex shrink-0 justify-center items-center size-6">
+                                <svg class="shrink-0 size-4 group-hover:scale-115 group-focus:scale-115 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12v4a1 1 0 0 1-1 1h-4"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M17 8V7"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M7 17h.01"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="7" width="5" height="5" rx="1"/></svg>
+                            </span>
+                            <span class="truncate hs-overlay-minified:opacity-0 transition-opacity duration-300">Scan Barcode</span>
+                        </a>
+                    </li>
                 </ul>
                 <!-- End List -->
             </div>
@@ -277,7 +301,7 @@
     <div class="h-full flex flex-col justify-between sm:justify-center w-full mt-[3.3rem] mx-auto px-4 sm:px-6 lg:px-4">
         <!-- Body -->
         <div class="h-[calc(100dvh-65px)] overflow-hidden flex flex-col bg-white border border-gray-200 shadow-xs rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-            <div class="flex-1 flex flex-col overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+            <div class="flex-1 flex flex-col h-full overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                 {{ $slot }}
             </div>
         </div>
@@ -286,8 +310,8 @@
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
 
-
-
+<script src="/assets/vendor/lodash/lodash.min.js"></script>
+<script src="/assets/vendor/vanilla-calendar-pro/index.js"></script>
 <script data-navigate-track>
     document.addEventListener('livewire:navigate', initPreline);
 

@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "lucide": "^0.542.0",
-        "preline": "^3.2.3"
+        "preline": "^3.2.3",
+        "puppeteer": "^24.19.0"
     }
 }

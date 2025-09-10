@@ -16,11 +16,9 @@ class Index extends Component
     {
         $menus = Menu::all();
         $this->headers = [
-            'Menu ID',
-            'Nama',
+            'Menu',
             'Jenis',
             'Tanggal Dibuat',
-            ''
         ];
 
         foreach ($menus as $menu) {
@@ -28,19 +26,29 @@ class Index extends Component
 
             if ($menu->image) {
                 $imageUrl = url('storage/' . $menu->image);
-                $image = <<<IMG
-                    <div class="">
-                        <img src="$imageUrl" class="">
+                $labelName = <<<IMG
+                    <div class="flex items-center gap-x-16">
+                        <img class="shrink-0 w-32 rounded-lg" src="$imageUrl" alt="Product Image">
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">$menu->name</span>
+                        </div>
                     </div>
                 IMG;
-            };
+            } else {
+                $labelName = <<<IMG
+                    <div class="flex items-center gap-x-16">
+                        <div class="shrink-0 w-32 rounded-lg"></div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">$menu->name</span>
+                        </div>
+                    </div>
+                IMG;
+            }
 
             $this->rows[] = [
-                $menu->id,
-                $menu->name,
+                $labelName,
                 $menu->type === 'food' ? 'Makanan' : 'Minuman',
                 $menu->created_at->format('d M Y'),
-                $image
             ];
         }
     }
